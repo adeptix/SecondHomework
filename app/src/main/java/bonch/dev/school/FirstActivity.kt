@@ -12,23 +12,34 @@ import kotlinx.android.synthetic.main.activity_first.*
 class FirstActivity : AppCompatActivity() {
 
     private val SECOND_ACTIVITY_REQUEST = 0
-    private lateinit var secondActivityButton: Button
+    private val THIRD_ACTIVITY_REQUEST = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
 
-        secondActivityButton = second_activity_button
-        secondActivityButton.setOnClickListener {
+        second_activity_button.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
             startActivityForResult(intent, SECOND_ACTIVITY_REQUEST)
+        }
+
+        third_activity_button.setOnClickListener {
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivityForResult(intent, THIRD_ACTIVITY_REQUEST)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-       Toast.makeText(this
-           ,if(resultCode == Activity.RESULT_OK) "Ты нажал кнопку" else "Ты вышел иным путем"
-           , Toast.LENGTH_SHORT).show()
+      val exitWay = if(resultCode == Activity.RESULT_OK) "Нажав кнопку" else "Не нажимая кнопки"
+      val exitAct = when(requestCode) {
+          SECOND_ACTIVITY_REQUEST -> "Second"
+          THIRD_ACTIVITY_REQUEST -> "Third"
+          else -> "Any"
+      }
+
+       Toast.makeText(this, "$exitWay ты покинул $exitAct Activity", Toast.LENGTH_SHORT).show()
+
     }
 
 

@@ -1,24 +1,19 @@
 package bonch.dev.school
 
-
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import kotlinx.android.synthetic.main.activity_first.*
 import kotlinx.android.synthetic.main.activity_second.*
 
-class SecondActivity : AppCompatActivity() {
-
+class ThirdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second)
+        setContentView(R.layout.activity_third)
 
-       finish_button.setOnClickListener {
-           setResult(Activity.RESULT_OK)
-           finish()
+        finish_button.setOnClickListener {
+            setResult(Activity.RESULT_OK)
+            finish()
         }
-
     }
 }
