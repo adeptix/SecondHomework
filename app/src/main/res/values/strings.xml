@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">SecondHomework</string>
-    <string name="to_second_activity">To Second Activity</string>
-    <string name="to_third_activity">To Third Activity</string>
-    <string name="finish2">Finish 2</string>
-    <string name="finish3">Finish 3</string>
+    <string name="dialog">Диалоговое окно</string>
 </resources>
